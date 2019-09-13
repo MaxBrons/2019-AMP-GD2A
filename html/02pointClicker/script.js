@@ -8,7 +8,7 @@ canvas.width = width;
 canvas.height = height;
 
 let circle = [];
-    
+let score = 0;
 
 for(let i = 0; i < 11; i++)
     drawCircle();
@@ -28,22 +28,24 @@ function drawCircle(){
     }
 }
 
+let difference = new Vector2d(0,0);
+
 window.addEventListener('click', (evt)=>{
     let mousePoint = new Vector2d(evt.clientX, evt.clientY);
     for (let i = 0; i < circle.length; i++) {
-        let difference = new Vector2d(0,0);
-        let posx = circle[i].position.dx - mousePoint.dx;
-        let posy = circle[i].position.dy - mousePoint.dy;
-
-        console.log(circle[i].position, mousePoint);
+        difference.differencevector(circle[i].position, mousePoint);
         console.log(difference.differencevector(circle[i].position, mousePoint));
-        
+        if(difference.magnitude <= circle[i].radius)
+        {
+            score++;
+            circle[i].color = "orange";
+            circle[i].draw(context);
+        }
 
-   if(difference.magnitude <= circle[i].radius) 
-   {
-       console.log(mousePoint);
-        circle[i].color = "rgb(100,100,100)";
-        
-   }   
-}
+        if(score == circle.length)
+        {
+            score = 0;
+            location.reload();
+        } 
+    }  
 });
