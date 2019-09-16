@@ -10,7 +10,7 @@ canvas.height = height;
 let circle = [];
 let circlesClicked = 0;
 
-for(let i = 0; i < 11; i++)
+for(let i = 0; i < 10; i++)
     drawCircle();
 
 function drawCircle(){
@@ -34,14 +34,14 @@ window.addEventListener('click', (evt)=>{
     let mousePoint = new Vector2d(evt.clientX, evt.clientY);
     for (let i = 0; i < circle.length; i++) {
         difference.differencevector(circle[i].position, mousePoint);
-        if(difference.magnitude <= circle[i].radius)
+        if(difference.magnitude <= circle[i].radius &&circle[i].color != "orange")
         {
             circlesClicked++;
             circle[i].color = "orange";
             circle[i].draw(context);
         }
 
-        if(circlesClicked == circle.length)
+        if(circlesClicked == 10)
         {
             circlesClicked = 0;
             location.reload();
