@@ -8,7 +8,7 @@ canvas.width = width;
 canvas.height = height;
 
 let circle = [];
-let score = 0;
+let circlesClicked = 0;
 
 for(let i = 0; i < 11; i++)
     drawCircle();
@@ -34,17 +34,16 @@ window.addEventListener('click', (evt)=>{
     let mousePoint = new Vector2d(evt.clientX, evt.clientY);
     for (let i = 0; i < circle.length; i++) {
         difference.differencevector(circle[i].position, mousePoint);
-        console.log(difference.differencevector(circle[i].position, mousePoint));
         if(difference.magnitude <= circle[i].radius)
         {
-            score++;
+            circlesClicked++;
             circle[i].color = "orange";
             circle[i].draw(context);
         }
 
-        if(score == circle.length)
+        if(circlesClicked == circle.length)
         {
-            score = 0;
+            circlesClicked = 0;
             location.reload();
         } 
     }  
