@@ -12,12 +12,6 @@ let circle = [];
 for(let i = 0; i < 10; i++)
     drawCircle();
 
-function drawCircle(){
-    let color = "black";
-    let rvar = new Point(new Vector2d(getRandNumber(width),getRandNumber(height)),5,color);
-    circle.push(rvar);
-}
-
 context.beginPath();
 context.fillStyle = "rgba(100,205,50,0.4)";
 context.moveTo(circle[0].position.dx,circle[0].position.dy);
@@ -29,10 +23,15 @@ for (let i = 0; i < circle.length; i++) {
     context.fill();
     context.stroke();
 
-    for (let i = 0; i < circle.length; i++) {
-        circle[i].draw(context);        
-    }
+for (let i = 0; i < circle.length; i++) {
+    circle[i].draw(context);        
+}
 
+function drawCircle(){
+    let color = "black";
+    let rvar = new Point(new Vector2d(getRandNumber(width),getRandNumber(height)),5,color);
+    circle.push(rvar);
+}
 function getRandNumber(max){
     let ans = Math.floor(Math.random() * max);
     return ans;
