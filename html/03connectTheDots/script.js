@@ -13,20 +13,25 @@ for(let i = 0; i < 10; i++)
     drawCircle();
 
 function drawCircle(){
-    let color = "rgb(" + getRandNumber(255) + "," + getRandNumber(255) + "," + getRandNumber(255) + ")";
-    let rvar = new Point(new Vector2d(getRandNumber(width),getRandNumber(height)),10,color);
+    let color = "black";
+    let rvar = new Point(new Vector2d(getRandNumber(width),getRandNumber(height)),5,color);
     circle.push(rvar);
 }
 
 context.beginPath();
+context.fillStyle = "rgba(100,205,50,0.4)";
 context.moveTo(circle[0].position.dx,circle[0].position.dy);
-    for (let i = 0; i < circle.length; i++) {
-        circle[i].draw(context);        
+
+for (let i = 0; i < circle.length; i++) {        
         context.lineTo(circle[i].position.dx,circle[i].position.dy);
     }
+    context.closePath();
     context.fill();
     context.stroke();
-    context.closePath();
+
+    for (let i = 0; i < circle.length; i++) {
+        circle[i].draw(context);        
+    }
 
 function getRandNumber(max){
     let ans = Math.floor(Math.random() * max);
