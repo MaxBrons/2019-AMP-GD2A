@@ -25,12 +25,13 @@ function animate() {
   context.clearRect(0,0,canvas.width,canvas.height);
   requestAnimationFrame(animate);
 
+  grid.draw(context);
+
   l.defineLineWithTwoPoint(A,B);
   l_2.defineLineWithTwoPoint(C,D);
   l.draw(context);
   l_2.draw(context);
-  grid.draw(context);
-
+  
   S.position.dx = l.intersection(l_2).x;
   S.position.dy = l.intersection(l_2).y;
 
