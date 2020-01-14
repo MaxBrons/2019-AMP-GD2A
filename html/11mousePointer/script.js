@@ -6,11 +6,11 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-let array = [];
+let arrows = [];
 
 for (let i = 0; i < 30; i++) {
   let arrow = new Arrow();
-  array.push(arrow);
+  arrows.push(arrow);
 }
 let angle;
 let mouse = {};
@@ -18,9 +18,9 @@ let mouse = {};
 function animate(){
   requestAnimationFrame(animate);
   context.clearRect(0,0,width,height);
-  for (let i = 0; i < array.length; i++) {
-    array[i].angle = Math.atan2(mouse.y-canvas.height/2, mouse.x-canvas.width/2);
-    array.draw(context);
+  for (let i = 0; i < arrows.length; i++) {
+    arrows[i].angle = Math.atan2(mouse.y-canvas.height/2, mouse.x-canvas.width/2);
+    arrows.draw(context);
   }
 }
 
