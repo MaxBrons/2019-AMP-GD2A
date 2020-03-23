@@ -14,7 +14,6 @@ let A = new Point(new Vector2d(200,300),20,"red","A",true);
 let B = new Point(new Vector2d(500,400),20,"blue","B",true);
 let grid = new Grid();
 
-
 function animate() {
   requestAnimationFrame(animate);
   context.clearRect(0,0,width,height);
