@@ -20,7 +20,7 @@ function animate(){
   context.clearRect(0,0,width,height);
   for (let i = 0; i < arrows.length; i++) {
     arrows[i].angle = Math.atan2(mouse.y-canvas.height/2, mouse.x-canvas.width/2);
-    arrows.draw(context);
+    arrows[i].draw(context);
   }
 }
 
