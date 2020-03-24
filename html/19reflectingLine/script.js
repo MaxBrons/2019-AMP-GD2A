@@ -5,6 +5,7 @@ canvas.height = window.innerHeight;
 
 let ball = new DPoint(new Vector2d(200,300),new Vector2d(6,6), new Vector2d(0,0),20,"white");
 let bumper = new Point(new Vector2d(canvas.width/2,canvas.height/2),canvas.height/4,"white");
+let point = new Point(new Vector2d(500,500),10,"yellow");
 let grid = new Grid();
 let distance;
 
