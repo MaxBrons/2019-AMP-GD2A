@@ -7,8 +7,6 @@ const height = window.innerHeight;
 canvas.width = width;
 canvas.height = height;
 
-canvas.width = width;
-canvas.height = height;
 let sun, earth, earth_base_position;
 let size_factor = 0.3;
 
